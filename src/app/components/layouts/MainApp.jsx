@@ -5,13 +5,19 @@ import AccountPanel from "../panels/Account/AccountPanel";
 import FormsPanel from "../panels/FormsPanel/Forms";
 
 const MainApp = ({ fetchedUser }) => {
-  const [selected, setSelected] = useState("account");
+  const [selected, setSelected] = useState("forms");
   return (
     <>
-      <MainTabs selected={selected} go={setSelected} />
+      {/* <MainTabs selected={selected} go={setSelected} /> */}
       <View activePanel={selected}>
         <AccountPanel go={setSelected} fetchedUser={fetchedUser} id="account" />
-        <FormsPanel go={setSelected} fetchedUser={fetchedUser} id="forms" />
+        <FormsPanel
+          selected={selected}
+          setSelected={setSelected}
+          go={setSelected}
+          fetchedUser={fetchedUser}
+          id="forms"
+        />
       </View>
     </>
   );

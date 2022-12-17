@@ -1,4 +1,4 @@
-import { Tabs, TabsItem } from "@vkontakte/vkui";
+import { FixedLayout, Tabbar, Tabs, TabsItem } from "@vkontakte/vkui";
 import "./MainTabs.css";
 
 const MainTabs = ({ go, selected }) => {

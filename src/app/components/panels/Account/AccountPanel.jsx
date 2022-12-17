@@ -1,4 +1,12 @@
-import { Avatar, Button, Headline, Panel, Text, Title } from "@vkontakte/vkui";
+import {
+  Avatar,
+  Button,
+  Headline,
+  Panel,
+  PanelHeader,
+  Text,
+  Title,
+} from "@vkontakte/vkui";
 import "./AccountPanel.css";
 
 const AccountPanel = ({ go, fetchedUser, id }) => {
@@ -7,6 +15,9 @@ const AccountPanel = ({ go, fetchedUser, id }) => {
   }
   return (
     <Panel id={id}>
+      <PanelHeader>
+        <MainTabs selected={selected} go={setSelected} />
+      </PanelHeader>
       <div className="account_panel">
         <div className="account_left">
           <Avatar src={fetchedUser.photo_200} size={150} />

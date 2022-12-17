@@ -8,6 +8,7 @@ import {
   ConfigProvider,
   SplitLayout,
   SplitCol,
+  WebviewType,
 } from "@vkontakte/vkui";
 import "@vkontakte/vkui/dist/vkui.css";
 
@@ -17,7 +18,7 @@ import MainApp from "./app/components/layouts/MainApp";
 
 const App = () => {
   const [scheme, setScheme] = useState("bright_light");
-  const [activePanel, setActivePanel] = useState("mainapp");
+  const [activePanel, setActivePanel] = useState("welcome");
   const [fetchedUser, setUser] = useState(null);
   const [popout, setPopout] = useState(<ScreenSpinner size="large" />);
 
@@ -45,7 +46,7 @@ const App = () => {
   };
 
   return (
-    <ConfigProvider scheme={scheme}>
+    <ConfigProvider webviewType={WebviewType.VKAPPS} scheme={scheme}>
       <AdaptivityProvider>
         <AppRoot>
           <SplitLayout popout={popout}>

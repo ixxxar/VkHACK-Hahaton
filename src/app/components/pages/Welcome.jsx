@@ -3,7 +3,7 @@ import welcomeImage from "../../vendor/images/welcome.svg";
 import { Button, Panel, Text, Title } from "@vkontakte/vkui";
 const WelcomeScreen = ({ id, go, fetchedUser }) => {
   return (
-    <Panel id={id}>
+    <Panel id={id} style={{ background: "white" }}>
       <div className="welcome_container">
         <img src={welcomeImage} alt="image" />
         <Title level="1" className="welcome_text">

@@ -34,7 +34,7 @@ const RegisterPanel = ({ id, go, fetchedUser }) => {
     setDateValue(value);
   };
   return (
-    <Panel id={id}>
+    <Panel id={id} style={{ background: "white" }}>
       <div className="panel_header">
         <div className="panel_header_container">
           <svg
@@ -81,7 +81,9 @@ const RegisterPanel = ({ id, go, fetchedUser }) => {
         </FormLayout>
 
         <div className="welcome_button_container">
-          <Button className="welcome_button">Продолжить</Button>
+          <Button className="welcome_button" onClick={() => go("mainapp")}>
+            Продолжить
+          </Button>
         </div>
       </div>
     </Panel>

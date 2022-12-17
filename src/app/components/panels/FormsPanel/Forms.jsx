@@ -11,9 +11,13 @@ import {
 } from "@vkontakte/vkui";
 import { Icon20Cancel } from "@vkontakte/icons";
 import FilterButton from "../../common/Forms/FiterButton";
+import MainTabs from "../../common/MainTabs/MainTabs";
 
-const FormsPanel = ({ id }) => (
+const FormsPanel = ({ id, selected, setSelected }) => (
   <Panel className="search_panel" id={id}>
+    <PanelHeader>
+      <MainTabs selected={selected} go={setSelected} />
+    </PanelHeader>
     <div className="filter_list">
       <Text>Фильтры:</Text>
       <ButtonGroup mode="horizontal" gap="space" stretched>
