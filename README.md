@@ -1,3 +1,40 @@
+# Инструкция пользования GIT
+
+## Первоначальные команды ( Вводятся при первоначальной инициализации проекта )
+
+```bash
+git init
+git remote add origin https://github.com/ixxxar/VkHACK-Hahaton.git
+git checkout dev
+git pull
+npm i
+```
+
+## Команды для повторного копирования ( ВНИМАНИЕ: При git pull все изменения, которые вы делали в ветке, из которой происходит pull УДАЛЯТСЯ )
+
+```bash
+git checkout <Название ветки, из которой нужно скопировать изменения>
+git pull
+```
+
+## Основные команды для работы с git
+
+### Создание своей ветки
+Ветки следует называть интуитивно понятно, с какими изменениями вы их опубликовываете
+
+```bash
+git checkout -b <Название Ветки>
+```
+
+### Публикация изменений
+НЕ опубликовывать в dev
+
+```bash
+git add .
+git commit -m "Комметарий к изменениям ( Любой )"
+git push origin <Название ветки, куда запушить изменения>
+```
+
 [<img width="134" src="https://vk.com/images/apps/mini_apps/vk_mini_apps_logo.svg">](https://vk.com/services)
 
 # Create VK Mini App [![npm][npm]][npm-url] [![deps][deps]][deps-url]
