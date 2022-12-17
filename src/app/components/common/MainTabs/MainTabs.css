@@ -1,0 +1,15 @@
+.mainapp_right_item {
+  padding: 0px !important;
+}
+
+.selected {
+  color: #63b9ba !important;
+  font-size: 17px !important;
+  border-bottom: 2px solid #63b9ba;
+  border-radius: 0px;
+}
+
+.mainapp_tabs {
+  background: white;
+  font-weight: 400 !important;
+}
