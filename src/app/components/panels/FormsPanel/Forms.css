@@ -1,139 +1,153 @@
-
-
 .filterButton {
-    margin-inline: 8px;
-    border-radius: 100px;
+  margin-inline: 8px;
+  border-radius: 100px;
 }
 
 .filter_list {
-    display: flex;
-    align-items: center;
-    margin: 12px 0 24px 0;
+  display: flex;
+  align-items: center;
+  margin: 24px 0 24px 0;
 }
 
+.search_headline {
+  margin-bottom: 6px;
+}
+
+/* SWIPE */
 .swipe_image {
-    border-radius: 12px;
-    margin-right: 27px;
+  border-radius: 12px;
+  position: relative;
 }
 
-.search_panel {
-    margin: 0 27px 43px 27px;
+.search_swipe {
+  margin-right: 27px;
+}
+
+.swipe_buttons {
+  top: 75%;
+  left: 10%;
+  position: absolute;
+}
+
+.swipe_button_container {
+  display: inline-block;
+}
+
+.swipe_button_cancel {
+  border-radius: 200px;
+  background-color: #a393f5;
+  width: 60px;
+  height: 60px;
+  margin-right: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swipe_button_ok {
+  border-radius: 200px;
+  background-color: #4bb34b;
+  color: white;
+  width: 60px;
+  height: 60px;
+  margin-left: 60px;
 }
 
 .search_page {
-    display: flex;
+  display: flex;
+  background-color: #fff;
 }
 
 .search_name {
-    margin-bottom: 27px;
+  margin: 24px 0 12px 0;
+  font-size: 26px;
 }
 
-.search_about {
-    margin-bottom: 27px;
+.search_block {
+  margin-bottom: 27px;
 }
 
-.search_education {
-    margin-bottom: 27px;
-}
-
-.search_skills {
-    margin-bottom: 27px;
-}
-
-.search_tech {
-    margin-bottom: 27px;
-}
-
-.search_projects{
-    margin-bottom: 27px;
+.search_block:first-child {
+  margin-top: 27px;
 }
 
 .search_name_text {
-    font-size: 26px;
+  font-size: 26px;
 }
 
 .search_status {
-    font-size: 15px;
+  text-align: center;
+  display: inline-block;
+  padding: 6px 12px 6px 12px;
+  border-radius: 100px;
+  color: #4bb34b;
+  background-color: #def0d3;
+  font-size: 15px;
 }
 
 .about_title {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .about_text {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .search_title {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .education_place {
-    text-align: center;
-    display:inline-block;
-    margin-right: 12px;
-    padding: 6px 12px 6px 12px;
-    border-radius: 100px;
-    color: #792EC0;
-    background-color: #CCD3FF;
-    font-size: 15px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 12px;
+  padding: 6px 12px 6px 12px;
+  border-radius: 100px;
+  color: #792ec0;
+  background-color: #ccd3ff;
+  font-size: 15px;
 }
 
 .education_speciality {
-    text-align: center;
-    display:inline-block;
-    margin-right: 12px;
-    padding: 6px 12px 6px 12px;
-    border-radius: 100px;
-    color: #2787F5;
-    background-color: #CCE3FD;
-    font-size: 15px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 12px;
+  padding: 6px 12px 6px 12px;
+  border-radius: 100px;
+  color: #2787f5;
+  background-color: #cce3fd;
+  font-size: 15px;
 }
 
-.skills_element {
-    text-align: center;
-    display:inline-block;
-    margin-right: 12px;
-    margin-bottom: 12px;
-    padding: 6px 12px 6px 12px;
-    border-radius: 100px;
-    color: #76787A;
-    background-color: #F0F2F5;
-    font-size: 15px;
+.search_element {
+  text-align: center;
+  display: inline-block;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  padding: 6px 12px 6px 12px;
+  border-radius: 100px;
+  color: #76787a;
+  background-color: #f0f2f5;
+  font-size: 15px;
 }
 
-.skills_element_active {
-    text-align: center;
-    display:inline-block;
-    margin-right: 12px;
-    margin-bottom: 12px;
-    padding: 6px 12px 6px 12px;
-    border-radius: 100px;
-    color: #2787F5;
-    background-color: #CCE3FD;
-    font-size: 15px;
+.search_element_active {
+  text-align: center;
+  display: inline-block;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  padding: 6px 12px 6px 12px;
+  border-radius: 100px;
+  color: #2787f5;
+  background-color: #cce3fd;
+  font-size: 15px;
 }
 
-.tech_element {
-    text-align: center;
-    display:inline-block;
-    margin-right: 12px;
-    margin-bottom: 12px;
-    padding: 6px 12px 6px 12px;
-    border-radius: 100px;
-    color: #76787A;
-    background-color: #F0F2F5;
-    font-size: 15px;
-}
-
-.tech_element_active {
-    text-align: center;
-    display:inline-block;
-    margin-right: 12px;
-    margin-bottom: 12px;
-    padding: 6px 12px 6px 12px;
-    border-radius: 100px;
-    color: #2787F5;
-    background-color: #CCE3FD;
-    font-size: 15px;
+.project_count {
+  text-align: center;
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 48px 2px 48px;
+  border-radius: 100px;
+  font-size: 17px;
 }

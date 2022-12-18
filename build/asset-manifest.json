@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.fac55dd5.css",
-    "main.js": "/static/js/main.dae9691a.js",
+    "main.css": "/static/css/main.769cfe26.css",
+    "main.js": "/static/js/main.87814f5d.js",
     "static/media/photo_1.png": "/static/media/photo_1.d2321af32d5c77c20e71.png",
     "static/media/welcome.svg": "/static/media/welcome.5e4a1f3598db5cf786931c7737e30d3c.svg",
+    "static/media/uni_logo.png": "/static/media/uni_logo.048156698ea66b0f91fb.png",
+    "static/media/logo.svg": "/static/media/logo.9489a365cdc54e23f5d49f94f2a3c62e.svg",
     "index.html": "/index.html",
-    "main.fac55dd5.css.map": "/static/css/main.fac55dd5.css.map",
-    "main.dae9691a.js.map": "/static/js/main.dae9691a.js.map"
+    "main.769cfe26.css.map": "/static/css/main.769cfe26.css.map",
+    "main.87814f5d.js.map": "/static/js/main.87814f5d.js.map"
   },
   "entrypoints": [
-    "static/css/main.fac55dd5.css",
-    "static/js/main.dae9691a.js"
+    "static/css/main.769cfe26.css",
+    "static/js/main.87814f5d.js"
   ]
 }

@@ -1,7 +1,20 @@
 import "./welcomeScreen.css";
 import welcomeImage from "../../vendor/images/welcome.svg";
 import { Button, Panel, Text, Title } from "@vkontakte/vkui";
+import userService from "../../service/user.service";
+import { useEffect } from "react";
 const WelcomeScreen = ({ id, go, fetchedUser }) => {
+  if (!fetchedUser) {
+    return "Loading...";
+  }
+  useEffect(async () => {
+    if (fetchedUser) {
+      const content = await userService.getInfo(fetchedUser.id);
+      if (content) {
+        go("mainapp");
+      }
+    }
+  }, []);
   return (
     <Panel id={id} style={{ background: "white" }}>
       <div className="welcome_container">

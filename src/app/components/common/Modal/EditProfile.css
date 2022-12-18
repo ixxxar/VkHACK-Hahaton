@@ -1,0 +1,14 @@
+.button {
+  background: #792ec0 !important;
+  width: 93%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+  margin-top: 7px;
+}
+
+.button_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

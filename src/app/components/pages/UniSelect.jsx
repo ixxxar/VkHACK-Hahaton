@@ -1,5 +1,6 @@
 import {
   Button,
+  CustomSelect,
   DateInput,
   FormItem,
   FormLayout,
@@ -15,36 +16,49 @@ import {
 } from "@vkontakte/vkui";
 import { Icon16Clear } from "@vkontakte/icons";
 import "./registerScreen.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import userService from "../../service/user.service";
+import logo from "../../vendor/icons/uni_logo.png";
+import bridge from "@vkontakte/vk-bridge";
 
-const RegisterPanel = ({ id, go, fetchedUser }) => {
+const UniSelect = ({ go, fetchedUser, id }) => {
   if (!fetchedUser) {
     return "Loading...";
   }
-  const [dateValue, setDateValue] = useState(() => {
-    const parsedString = fetchedUser.bdate.split(".");
-    const date = new Date();
-    date.setDate(Number(parsedString[0]));
-    date.setMonth(Number(parsedString[1]) - 1);
-    return date;
+  async function getVuz() {
+    const vuz = await bridge.send("VKWebAppStorageGet", {
+      keys: ["vuz", "specialization"],
+    });
+    return vuz;
+  }
+  const [vuz, setVuz] = useState(null);
+  const [data, setData] = useState({
+    vuz: "",
+    spec: "",
   });
-  const [name, setName] = useState(
-    fetchedUser.first_name + " " + fetchedUser.last_name
-  );
+  const [spec, setSpec] = useState(null);
+  useEffect(async () => {
+    const info = await getVuz();
+    const vuzObj = [];
+    const specObj = [];
+    Object.entries(JSON.parse(info.keys[0].value)).forEach((i) => {
+      vuzObj.push({ label: i[1], value: i[0] });
+    });
+    Object.entries(JSON.parse(info.keys[1].value)).forEach((i) => {
+      specObj.push({ label: i[1], value: i[0] });
+    });
+    setVuz(vuzObj);
+    setSpec(specObj);
+  }, []);
 
-  const changeDate = (value) => {
-    setDateValue(value);
-  };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(name, dateValue);
-    await userService.registerUser({
-      date: dateValue,
-      name: name,
+    await userService.updateUser({
       _id: fetchedUser.id,
+      ...data,
+      about: "",
     });
-    go("uniselect");
+    go("mainapp");
   };
   return (
     <Panel id={id} style={{ background: "white" }}>
@@ -69,42 +83,40 @@ const RegisterPanel = ({ id, go, fetchedUser }) => {
         </button>
       </div>
       <div className="welcome_container">
+        <img src={logo} alt="logo" />
         <FormLayout onSubmit={handleSubmit} style={{ position: "relative" }}>
-          <FormItem top="Ваше имя">
-            <Input
-              type="text"
-              placeholder="Введите имя"
-              value={name}
-              onChange={({ value }) => {
-                setName(value);
-              }}
-              after={
-                <IconButton
-                  onClick={() => {
-                    setName("");
-                  }}
-                  hoverMode="opacity"
-                  aria-label="Очистить поле"
-                >
-                  <Icon16Clear />
-                </IconButton>
-              }
-            />
-          </FormItem>
-          <FormItem top="Дата рождения">
-            <DateInput
-              type="date"
-              value={dateValue}
-              enableTime={false}
-              disablePast={false}
-              disableFuture={true}
-              closeOnChange={true}
-              disablePickers={false}
-              showNeighboringMonth={false}
-              disableCalendar={true}
-              onChange={changeDate}
-            />
-          </FormItem>
+          {vuz && (
+            <FormItem top="Место учёбы">
+              <CustomSelect
+                placeholder="Введите название ВУЗа"
+                searchable
+                value={data.vuz}
+                onChange={({ target }) => {
+                  setData((prevState) => ({
+                    ...prevState,
+                    vuz: target.value,
+                  }));
+                }}
+                options={vuz}
+              />
+            </FormItem>
+          )}
+          {spec && (
+            <FormItem top="Специальность">
+              <CustomSelect
+                placeholder="Введите название специальности"
+                searchable
+                value={data.spec}
+                onChange={({ target }) => {
+                  setData((prevState) => ({
+                    ...prevState,
+                    spec: target.value,
+                  }));
+                }}
+                options={spec}
+              />
+            </FormItem>
+          )}
           <div className="welcome_button_container">
             <Button type="submit" className="welcome_button">
               Продолжить
@@ -116,4 +128,4 @@ const RegisterPanel = ({ id, go, fetchedUser }) => {
   );
 };
 
-export default RegisterPanel;
+export default UniSelect;
